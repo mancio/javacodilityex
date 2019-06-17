@@ -29,7 +29,8 @@ public class FrogJmpTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {142730189, 3, 999111321,7},
-                {3,10,85,30}
+                {3,10,85,30},
+                {9706038,5467,543543549,56}
                 /*{8, 2, 10},
                 {4, 5, 9},
                 {5, 5, 10}*/
