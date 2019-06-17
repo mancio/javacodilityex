@@ -7,6 +7,8 @@ https://funnelgarden.com/binary-gap-codility-solution/
 
 https://funnelgarden.com/codility-solutions/
 
+https://app.codility.com/programmers/lessons/3-time_complexity/perm_missing_elem/
+
 #### Some keywords to study
 
 - error quotes
