@@ -25,19 +25,32 @@ Write an efficient algorithm for the following assumptions:
         the elements of A are all distinct;
         each element of array A is an integer within the range [1..(N + 1)].
 
+[52,53,54,56]
+
+sum = 215
+
+ris = 55
+
+n + 1 + n - 1 + n - 2 + n - 3 = sum
+
+4n - 5 = sum
+
+4n = sum - 5
+
+n = (sum - 5)/4
+
+n = (215 - 5)/4
+
+[2,3,5]
+
+n + 1 + n - 1 + n - 2 = sum
+
+3n - 2 = sum
 
 
-1 + x + n + 1 = 11
+[2,3,4,5,6,7,9]
 
-x + n = 11 - 2
-
-x + n = 9
-
-x + 5 = 9
-
-x = 9 - 5
-
-x = 4
+n + 1 + n - 1
 
  */
 
