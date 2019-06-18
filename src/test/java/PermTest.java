@@ -11,8 +11,8 @@ public class PermTest {
     @Test
     public void TestSimple(){
 
-        int[] A = {53,52,54,56};
-        int sol = 55;
+        int[] A = {1,2,3};
+        int sol = 4;
 
         assertEquals(sol,PermMissingElem.solution(A));
     }
