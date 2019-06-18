@@ -26,14 +26,51 @@ Write an efficient algorithm for the following assumptions:
         each element of array A is an integer within the range [1..(N + 1)].
 
 
+
+1 + x + n + 1 = 11
+
+x + n = 11 - 2
+
+x + n = 9
+
+x + 5 = 9
+
+x = 9 - 5
+
+x = 4
+
  */
+
+
 
 public class PermMissingElem {
 
-        
 
-    public int solution(int[] A){
+    public static void main(String[] args) {
 
+        int[] A = {2, 3, 1, 5};
+
+
+        int a = solution(A);
+
+        System.out.println(a);
+
+    }
+
+    static int solution(int[] A) {
+
+        int sum = 0;
+        int max = 0;
+
+        for (int el : A){
+            sum+=el;
+            if(el>max) max = el;
+
+        }
+
+        int tot = sum-2-max;
+
+        return tot;
     }
 
 }

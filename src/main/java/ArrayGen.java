@@ -33,4 +33,19 @@ public class ArrayGen {
         return A;
 
     }
+
+    static int[] onemis(){
+
+        int[] A = new int[100_000];
+
+        int n = 1;
+
+        for (int i = 0; i<A.length;i++){
+            A[i] = n++;
+        }
+
+        A[100_000-1] = 100_000+1;
+
+        return A;
+    }
 }
