@@ -11,7 +11,7 @@ public class PermTest {
     @Test
     public void TestSimple(){
 
-        int[] A = {52,53,54,56};
+        int[] A = {53,52,54,56};
         int sol = 55;
 
         assertEquals(sol,PermMissingElem.solution(A));
@@ -21,8 +21,8 @@ public class PermTest {
     public void TestHard(){
 
         int res = PermMissingElem.solution(ArrayGen.onemis());
-        Printer.vlist(ArrayGen.onemis());
-        int sol = 100_000+1;
+        //Printer.vlist(ArrayGen.onemis());
+        int sol = 100_000;
 
         assertEquals(sol,res);
     }

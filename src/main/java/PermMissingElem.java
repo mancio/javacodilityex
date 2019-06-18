@@ -50,7 +50,9 @@ n + 1 + n - 1 + n - 2 = sum
 
 [2,3,4,5,6,7,9]
 
-n + 1 + n - 1
+n+1 = 9
+
+n = 9 - 1 = 8
 
  */
 
@@ -72,19 +74,19 @@ public class PermMissingElem {
 
     static int solution(int[] A) {
 
-        int sum = 0;
         int max = 0;
 
         for (int el : A){
-            sum+=el;
             if(el>max) max = el;
 
         }
 
-        int tot = sum-2-max;
+        int tot = max-1;
 
         return tot;
     }
+
+    //wrong!!!! should be a number n-2 missing not only n-1
 
 }
 
