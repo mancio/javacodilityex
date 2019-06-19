@@ -47,9 +47,19 @@ Write an efficient algorithm for the following assumptions:
         N and X are integers within the range [1..100,000];
         each element of array A is an integer within the range [1..X].
 
+x = 5
+
+1
+2
+3
+4
+5
 
 
  */
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class FrogRiverOne {
 
@@ -66,6 +76,19 @@ public class FrogRiverOne {
 
     static int solution(int X, int[] A){
 
-        return 9;
+        int pos = 0;
+
+        Set<Integer> s = new HashSet<>();
+
+        for(int el : A){
+            s.add(el);
+        }
+
+        for(int i = 1; i<=X;i++){
+            if(!s.contains(i)) return -1;
+
+        }
+
+        return -1;
     }
 }
