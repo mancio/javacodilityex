@@ -57,6 +57,8 @@ n = 9 - 1 = 8
  */
 
 
+import java.util.HashSet;
+import java.util.Set;
 
 public class PermMissingElem {
 
@@ -78,16 +80,35 @@ public class PermMissingElem {
 
     static int solution(int[] A) {
 
-        int max = 0;
 
-        for (int el : A){
-            if(el>max) max = el;
+
+        int max = A.length + 1;
+
+
+
+        //load array elements into array so would be quick to check if elements exist
+
+        Set incompleteSet = new HashSet();
+
+        for(int i=0; i<A.length; i++) {
+
+            incompleteSet.add(A[i]);
 
         }
 
-        int tot = max-1;
 
-        return tot;
+
+        for(int i=1; i<max+1; i++) {
+
+            if(!incompleteSet.contains(i)) {
+
+                return (i);
+
+            }
+
+        }
+
+        throw new RuntimeException("shouldn't reach here");
     }
 
     //wrong!!!! should be a number n-2 missing not only n-1
