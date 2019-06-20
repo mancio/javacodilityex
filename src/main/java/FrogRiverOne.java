@@ -85,6 +85,11 @@ public class FrogRiverOne {
 
     static int solution(int X, int[] A){
 
+        /*
+            The first set is the step path required with the size of X
+            The second contain all the different step found in the array
+            With the for cycle I can keep track of the position on the array
+         */
 
         Set<Integer> req = new HashSet<>();
 
