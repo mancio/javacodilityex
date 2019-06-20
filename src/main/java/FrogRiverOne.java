@@ -49,15 +49,24 @@ Write an efficient algorithm for the following assumptions:
 
 x = 5
 
+1 0
+3 1
+
+4 3
+2 4
+5 6
+
+
 1
-2
 3
 4
+2
 5
 
 
  */
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -76,17 +85,21 @@ public class FrogRiverOne {
 
     static int solution(int X, int[] A){
 
-        int pos = 0;
 
-        Set<Integer> s = new HashSet<>();
+        Set<Integer> req = new HashSet<>();
 
-        for(int el : A){
-            s.add(el);
+        for (int i = 1; i<=X; i++){
+            req.add(i);
         }
 
-        for(int i = 1; i<=X;i++){
-            if(!s.contains(i)) return -1;
+        Set<Integer> cur = new HashSet<>();
 
+        for (int i = 0; i<A.length; i++){
+            cur.add(A[i]);
+
+            if(cur.size()<req.size()) continue;
+
+            if(cur.containsAll(req)) return i;
         }
 
         return -1;
