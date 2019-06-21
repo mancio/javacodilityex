@@ -59,5 +59,57 @@ Write an efficient algorithm for the following assumptions:
 
  */
 
+import java.lang.reflect.Array;
+import java.util.HashMap;
+import java.util.Map;
+
 public class MaxCounters {
+
+
+
+    public static void main(String[] args) {
+
+        int[] A= {3,4,4,6,1,4,4};
+        int N = 5;
+
+        int[] sol = solution(N,A);
+
+        Printer.vlist(sol);
+
+    }
+
+    static int[] solution(int N, int[] A){
+
+        HashMap<Integer,Integer> h = new HashMap<>();
+
+        int max = 0;
+
+        for(int g = 0; g<A.length; g++){
+            h.put(g,0);
+        }
+
+        for (int i = 0; i<A.length; i++){
+            if(A[i]>=1 && A[i]<=N){
+                max = h.get(i)+1;
+                h.put(A[i]-1,max);
+            }else if(A[i] == N+1){
+                for(int n = 0; i<A.length; i++){
+                    h.put(A[n]-1,max);
+                }
+            }else {
+                h.put(i,0);
+            }
+        }
+
+        int[] ar = new int[N];
+
+        for(int n2 = 0; n2<N; n2++){
+            ar[n2] = h.get(n2);
+        }
+
+        return ar;
+
+    }
+
+
 }
