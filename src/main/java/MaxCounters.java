@@ -94,7 +94,7 @@ public class MaxCounters {
                 h.put(A[i]-1,max);
             }else if(A[i] == N+1){
                 for(int n = 0; i<A.length; i++){
-                    h.put(A[n]-1,max);
+                    h.put(n,max);
                 }
             }else {
                 h.put(i,0);
