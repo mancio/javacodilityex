@@ -51,6 +51,9 @@ Write an efficient algorithm for the following assumptions:
  */
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class PermCheck {
 
     public static void main(String[] args) {
@@ -65,7 +68,18 @@ public class PermCheck {
 
     static int solution(int[] A){
 
-        
+        Set<Integer> s  = new HashSet<>();
+
+        for(int el :A){
+            if(s.contains(el)) return 0;
+            s.add(el);
+        }
+
+        for(int i = 1; i<=A.length; i++){
+            if(!s.contains(i)) return 0;
+        }
+
+        return 1;
     }
 
 }
