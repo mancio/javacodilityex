@@ -96,7 +96,14 @@ public class CountDiv {
 
 
 
-        for(int i=updatedA; i<=B; i++) { if(i % K == 0) { firstNonZeroDivisor = i; break; } } for(int i=B; i>=updatedA; i--) {
+        for(int i=updatedA; i<=B; i++) {
+            if(i % K == 0) {
+                firstNonZeroDivisor = i;
+                break;
+            }
+        }
+
+        for(int i=B; i>=updatedA; i--) {
 
             if(i % K == 0) {
 
@@ -112,9 +119,7 @@ public class CountDiv {
 
             divisors = 0;
 
-        }
-
-        else {
+        } else {
 
             divisors += ((lastNonZeroDivisor - firstNonZeroDivisor) / K) + 1;
 
