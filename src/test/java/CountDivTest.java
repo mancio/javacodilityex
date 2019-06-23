@@ -18,16 +18,18 @@ public class CountDivTest {
         int A = 0;
         int B = 2000000000;
         int K = 1;
-        int sol = 2000000000;
+        int sol = 2000000001;
         assertEquals(sol,CountDiv.solution(A,B,K));
     }
 
     @Test
     public void test3(){
-        int A = 11;
-        int B = 345;
-        int K = 17;
-        int sol = 20;
+        int A = 6;
+        int B = 11;
+        int K = 2;
+        int sol = 3;
         assertEquals(sol,CountDiv.solution(A,B,K));
     }
+
+
 }
