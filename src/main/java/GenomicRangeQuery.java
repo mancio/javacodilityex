@@ -49,9 +49,9 @@ public class GenomicRangeQuery {
 
     public static void main(String[] args) {
 
-        String S = "";
-        int[] P = {};
-        int[] Q = {};
+        String S = "CAGCCTA";
+        int[] P = {2,5,0};
+        int[] Q = {4,5,6};
 
         int[] sol = solution(S,P,Q);
 
@@ -63,6 +63,18 @@ public class GenomicRangeQuery {
 
         int[] sol = {};
 
+        static final int A = 
+
+        char[] string = S.toCharArray();
+
+        for(int i = 0; i<P.length; i++){
+            for(int n = P[i]; n<=Q[i]; i++){
+                switch (string[n]){
+                    case 'C':
+
+                }
+            }
+        }
 
         return sol;
 
