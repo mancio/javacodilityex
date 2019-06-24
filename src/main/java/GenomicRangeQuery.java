@@ -43,40 +43,61 @@ Write an efficient algorithm for the following assumptions:
 
 
 
+0 2
+1 1
+2 3
+3 2
+4 2
+5 4
+6 1
+
  */
+
+import java.util.HashMap;
 
 public class GenomicRangeQuery {
 
     public static void main(String[] args) {
 
         String S = "CAGCCTA";
-        int[] P = {2,5,0};
-        int[] Q = {4,5,6};
+        int[] P = {2, 5, 0};
+        int[] Q = {4, 5, 6};
 
-        int[] sol = solution(S,P,Q);
+        int[] sol = solution(S, P, Q);
 
-        System.out.println(sol);
+        Printer.vlist(sol);
 
     }
 
-    static int[] solution(String S, int[] P, int[] Q){
+    static int[] solution(String S, int[] P, int[] Q) {
 
-        int[] sol = {};
+        char[] st = S.toCharArray();
+        int[] sol = new int[P.length];
 
-        static final int A = 
+        HashMap<Integer,Integer> h = new HashMap<>();
 
-        char[] string = S.toCharArray();
-
-        for(int i = 0; i<P.length; i++){
-            for(int n = P[i]; n<=Q[i]; i++){
-                switch (string[n]){
-                    case 'C':
-
-                }
+        for (int i=0; i<st.length; i++){
+            switch (st[i]){
+                case 'A': h.put(i,1); break;
+                case 'C': h.put(i,2); break;
+                case 'G': h.put(i,3); break;
+                case 'T': h.put(i,4); break;
             }
+        }
+
+
+
+        for (int g = 0; g<P.length; g++){
+            int prev = 5;
+            for(int j = P[g]; j<=Q[g]; j++){
+                prev = Math.min(h.get(j),prev);
+            }
+            sol[g] = prev;
         }
 
         return sol;
 
     }
 }
+
+
