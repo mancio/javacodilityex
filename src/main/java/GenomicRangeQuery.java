@@ -43,17 +43,25 @@ Write an efficient algorithm for the following assumptions:
 
 
 
-0 2
-1 1
-2 3
-3 2
-         4 2
-5 4
-6 1
+C 3
+A 2
+G 1
+T 1
 
-0 | 2 3 4
-1 | 5
-2 | 0 1 2 3 4 5 6
+C A G C C T A
+0 1 2 3 4 5 6
+
+C A G C T A
+0 1 2 3 5 6
+
+0
+1
+2
+3
+4
+5
+6
+
 
 */
 
