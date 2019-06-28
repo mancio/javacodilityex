@@ -51,3 +51,7 @@ https://app.codility.com/programmers/lessons/3-time_complexity/perm_missing_elem
 #### Theory questions
 
 https://www.softwaretestinghelp.com/core-java-interview-questions/
+
+#### Multithreading lessons
+
+https://www.guru99.com/multithreading-java.html
