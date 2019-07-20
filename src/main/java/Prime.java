@@ -13,8 +13,6 @@
  */
 
 
-import java.util.LinkedList;
-
 public class Prime {
 
     public static void main(String[] args) {
@@ -24,6 +22,10 @@ public class Prime {
     }
 
     static boolean prime(int num){
+
+        if(num == 0 || num == 1){
+            return false;
+        }
 
         for(int i = 2; i <= Math.sqrt(num); i++){
             if(num % i == 0){
