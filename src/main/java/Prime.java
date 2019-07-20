@@ -5,7 +5,7 @@
 
   a number is called a prime number if its only divisible by 1 or itself
 
-  Sieve of Eratosthenes algorithm
+
 
 
 
