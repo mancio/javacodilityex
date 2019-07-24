@@ -55,3 +55,11 @@ https://www.softwaretestinghelp.com/core-java-interview-questions/
 #### Multithreading lessons
 
 https://www.guru99.com/multithreading-java.html
+
+https://www.vogella.com/tutorials/JavaConcurrency/article.html
+
+vogella rules :)
+
+#### JVM memory management 
+
+https://dzone.com/articles/java-memory-management
