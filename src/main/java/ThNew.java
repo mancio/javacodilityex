@@ -1,33 +1,27 @@
 /*
-   Just a thread
+   Just a colorful thread :)
+   ColPick take
  */
 
-import java.util.ArrayList;
-import java.util.Random;
+
 
 public class ThNew extends Thread {
 
     private String name = "standard";
-    private TxColor tx;
-    private Random r;
-    private ArrayList<String> CList;
+
+    private TxColor tc;
 
     ThNew(String name){
         name = this.name;
-        tx = new TxColor();
-        CList = tx.getCList();
-        r = new Random(CList.size());
+        tc = new TxColor();
     }
 
     @Override
     public void run(){
-        System.out.println("Thread " + name + " started");
+        System.out.println(tc.colPick()+"Thread " + name + " started");
     }
 
-    // choose a random color thread
-    private String colPick(){
-        return CList.get(r.nextInt());
-    }
+
 
 
 }
