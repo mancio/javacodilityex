@@ -4,6 +4,7 @@
  */
 
 
+import java.util.Random;
 
 public class ThNew extends Thread {
 
@@ -12,16 +13,19 @@ public class ThNew extends Thread {
     private TxColor tc;
 
     ThNew(String name){
-        name = this.name;
+        this.name = name;
         tc = new TxColor();
     }
 
     @Override
     public void run(){
+        try{
+            sleep(new Random().nextInt(1000));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         System.out.println(tc.colPick()+"Thread " + name + " started");
     }
-
-
-
 
 }
