@@ -10,11 +10,11 @@ public class ThNew extends Thread {
 
     private String name = "standard";
 
-    private TxColor tc;
+
 
     ThNew(String name){
         this.name = name;
-        tc = new TxColor();
+
     }
 
     @Override
@@ -25,7 +25,7 @@ public class ThNew extends Thread {
             e.printStackTrace();
         }
 
-        System.out.println(tc.colPick()+"Thread " + name + " started");
+        System.out.println(TxColor.colPick()+"Thread " + name + " started");
     }
 
 }
