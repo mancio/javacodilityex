@@ -14,15 +14,9 @@ public class ThRandy {
         ThNew th2 = new ThNew("Giorgio");
         ThNew th3 = new ThNew("Andrea");
         th1.start();
-
-
-
-
         th2.start();
         th3.start();
 
     }
-
-
 
 }

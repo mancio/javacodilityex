@@ -32,14 +32,14 @@ class TxColor {
     static String colPick(){
 
         String col = "null";
+        int count = 0;
         do{
+            count++;
             int n = r.nextInt(l.size());
             col = getCList().get(n);
-        }while (col==oldpick);
+        }while (col==oldpick && count<10);
+        count = 0;
         oldpick=col;
         return col;
     }
-
-
-
 }
