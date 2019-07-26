@@ -29,7 +29,7 @@ class TxColor {
     }
 
     // choose a random color thread
-    static String colPick(){
+    static synchronized String colPick(){
 
         String col = "null";
         int count = 0;
@@ -37,7 +37,7 @@ class TxColor {
             count++;
             int n = r.nextInt(l.size());
             col = getCList().get(n);
-        }while (col==oldpick && count<10);
+        }while (col.equals(oldpick) && count<10);
         count = 0;
         oldpick=col;
         return col;
