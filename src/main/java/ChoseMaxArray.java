@@ -1,8 +1,10 @@
-import java.util.*;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class MultiStream {
+public class ChoseMaxArray {
+
     public static void main(String[] args) {
         Random ran = new Random();
 
@@ -16,7 +18,6 @@ public class MultiStream {
         }
 
         System.out.println(sol(ar1,ar2));
-
     }
 
     static List sol(int[] ar1, int[] ar2){
@@ -29,5 +30,4 @@ public class MultiStream {
         if(a>=b){return a;}
         return b;
     }
-
 }
