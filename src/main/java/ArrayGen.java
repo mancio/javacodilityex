@@ -1,5 +1,8 @@
+import java.util.Random;
 
 public class ArrayGen {
+
+
 
     // array of paired value with only except one (odd occurrence)
     static  int[] oneodd(int n, int dim){
@@ -45,6 +48,19 @@ public class ArrayGen {
         }
 
         A[100_000-1] = 100_000+1;
+
+        return A;
+    }
+
+    static int[] randpos(int dim){
+
+        Random ran = new Random();
+
+        int[] A = new int[dim];
+
+        for(int i=0; i<A.length; i++){
+            A[i] = ran.nextInt(10000);
+        }
 
         return A;
     }
