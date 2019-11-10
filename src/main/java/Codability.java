@@ -23,9 +23,9 @@ import java.util.stream.Collectors;
 public class Codability {
     public static void main(String[] args) {
 
-        //int[] A = new int[]{1, 3, 6, 4, 1, 2};
+        int[] A = new int[]{1, 3, 6, 4, 1, 2, 5};
 
-        int[] A = ArrayGen.randpos(4000000);
+        //int[] A = ArrayGen.randpos(4000000);
 
         System.out.println(sol(A));
     }
