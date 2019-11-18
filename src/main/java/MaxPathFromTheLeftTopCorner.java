@@ -1,5 +1,10 @@
 
 /*
+Codility Challenge:
+Technetium 2019
+
+MaxPathFromTheLeftTopCorner
+
 You are given a matrix A consisting of N rows and M columns, where each cell contains a digit. Your task is to find a continuous sequence of neighbouring cells, starting in the top-left corner and ending in the bottom-right corner (going only down and right), that creates the biggest possible integer by concatenation of digits on the path. By neighbouring cells we mean cells that have exactly one common side.
 
         Write a function:
@@ -26,7 +31,7 @@ that, given matrix A consisting of N rows and M columns, returns a string which 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Matrix {
+public class MaxPathFromTheLeftTopCorner {
 
     public static void main(String[] args) {
 
@@ -48,6 +53,13 @@ public class Matrix {
 
         };
 
+        int[][] Z = new int[][]{
+                {2,2,2,2,2,2,2,2,2,2,2},
+                {2,2,2,2,2,8,2,2,2,2,2},
+                {2,2,2,2,2,2,2,2,2,2,2},
+                {2,2,2,2,2,2,2,2,2,2,2},
+        };
+
         System.out.println(sol(A));
 
     }
@@ -55,37 +67,47 @@ public class Matrix {
     static String sol(int[][] A) {
 
         String st = "";
+        String first = "";
+        String second = "";
+        int n = A[0].length;
+        int m = A.length;
 
-        int v = A.length - 1;
-        int h = A[0].length - 1;
-        if (h == 0) {
-            for (int i = 0; i <= v; i++) {
-                st = st.concat(String.valueOf(A[i][0]));
-            }
-        } else if (v == 0) {
-            for (int i = 0; i <= h; i++) {
-                st = st.concat(String.valueOf(A[0][i]));
-            }
+        int h = 0;
+        int v = 0;
 
-        } else {
+        st = st.concat(String.valueOf(A[0][0]));
 
-            st = st.concat(String.valueOf(A[0][0]));
+        while(h<n && v<m){
 
-            int m = 0; //vertical
-            int n = 0; // horizontal
-            while(m<v && n<h) {
-                if(A[m+1][n]>=A[m][n+1]){
-                    st = st.concat(String.valueOf(A[m+1][n]));
-                    m++;
-                }else {
-                    st = st.concat(String.valueOf(A[m][n+1]));
-                    n++;
-                }
-
+            if(h==n-1 && v==m-1){
+                break;
             }
 
-            st = st.concat(String.valueOf(A[v][h]));
+            if(h<n-1) {
+                first = "";
+                first = st.concat(String.valueOf(A[v][h + 1]));
+            }
+            if(v<m-1) {
+                second = "";
+                second = st.concat(String.valueOf(A[v + 1][h]));
+            }
+
+            if(Long.valueOf(first)>=Long.valueOf(second)){
+                st = st.concat(String.valueOf(A[v][h+1]));
+                h++;
+
+            }else {
+                st = st.concat(String.valueOf(A[v+1][h]));
+                v++;
+
+            }
+
+
+
+
         }
+
+
 
 
         return st;
