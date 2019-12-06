@@ -47,15 +47,18 @@ https://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commo
 */
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class FillinData {
+
+
+
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        InputStream stream = new FileInputStream("data/fillin.txt");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(stream));
 
         int readingsCount = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -83,6 +86,10 @@ class Miss {
 
     public static void calcMissing(List<String> readings) {
         // Write your code here
+        ListIterator listIterator = readings.listIterator();
+        while (listIterator.hasNext()){
+            System.out.println(listIterator.next());
+        }
 
 
     }
