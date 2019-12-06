@@ -47,9 +47,12 @@ https://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commo
 */
 
 
+import org.apache.commons.math3.analysis.polynomials.PolynomialFunctionLagrangeForm;
+
 import java.io.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -88,23 +91,52 @@ class Miss {
     public static void calcMissing(List<String> readings) {
         // Write your code here
 
-        DecimalFormat df3 = new DecimalFormat("#.###");
 
-        ArrayList<Integer> miss = null;
-        ArrayList<Double> y = null;
-        double count = 0.000;
-        int i = 0;
+        ArrayList<Double> xmiss = new ArrayList<>();
+
+        ArrayList<Double> x = new ArrayList<>();
+        ArrayList<Double> y = new ArrayList<>();
+        double i = 0;
 
         ListIterator<String> listIterator = readings.listIterator();
         while (listIterator.hasNext()){
 
             String s = listIterator.next();
             String sub = s.substring(s.indexOf(":") + 7);
+
             //System.out.println();
             if(sub.contains("M")){
-                miss.add(i);
+                xmiss.add(i);
+            }else {
+                x.add(i);
+                Double res = Double.valueOf(sub);
+                y.add(res);
+                //System.out.println(res);
+                //System.out.println("x:"+ i + " y:" + res);
             }
-            System.out.println(df3.format(Double.valueOf(s.substring(s.indexOf(":") + 7))));
+            i++;
+        }
+
+        //System.out.println(Arrays.toString(xmiss.toArray()));
+
+        double[] xd = new double[x.size()];
+        double[] yd = new double[x.size()];
+
+
+        for(int p = 0; p<x.size(); p++){
+            xd[p] = x.get(p);
+            yd[p] = y.get(p);
+            //System.out.println(xd[p] + ":::" + yd[p]);
+        }
+
+        PolynomialFunctionLagrangeForm p = new PolynomialFunctionLagrangeForm(xd,yd);
+
+        //List<Double> list = new ArrayList<>();
+
+        DecimalFormat df = new DecimalFormat("#.###");
+
+        for(Double dd: xmiss){
+            System.out.println(df.format(p.value(dd)));
         }
 
 
