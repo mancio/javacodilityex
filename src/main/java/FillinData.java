@@ -106,7 +106,9 @@ class Miss {
             String s = listIterator.next();
             String sub = s.substring(s.indexOf(":") + 7);
 
-            //System.out.println();
+            String day = s.substring(s.indexOf(" "));
+
+            System.out.println(day);
             if(sub.contains("M")){
                 xmiss.add(i);
             }else {
@@ -124,21 +126,21 @@ class Miss {
         double[] xd = new double[x.size()];
         double[] yd = new double[x.size()];
 
+        SimpleRegression sr = new SimpleRegression();
 
         for(int p = 0; p<x.size(); p++){
-            xd[p] = x.get(p);
-            yd[p] = y.get(p);
+            sr.addData(x.get(p), y.get(p));
             //System.out.println(xd[p] + ":::" + yd[p]);
         }
 
-        SimpleRegression p = new SimpleRegression();
+
 
         //List<Double> list = new ArrayList<>();
 
         DecimalFormat df = new DecimalFormat("#.###");
 
         for(Double dd: xmiss){
-            System.out.println(df.format(p.value(dd)));
+            //System.out.println(df.format(sr.predict(dd)));
         }
 
 
