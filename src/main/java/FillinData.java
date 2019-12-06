@@ -48,6 +48,8 @@ https://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commo
 
 
 import org.apache.commons.math3.analysis.polynomials.PolynomialFunctionLagrangeForm;
+import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
+import org.apache.commons.math3.stat.regression.SimpleRegression;
 
 import java.io.*;
 import java.text.DecimalFormat;
@@ -129,7 +131,7 @@ class Miss {
             //System.out.println(xd[p] + ":::" + yd[p]);
         }
 
-        PolynomialFunctionLagrangeForm p = new PolynomialFunctionLagrangeForm(xd,yd);
+        SimpleRegression p = new SimpleRegression();
 
         //List<Double> list = new ArrayList<>();
 
