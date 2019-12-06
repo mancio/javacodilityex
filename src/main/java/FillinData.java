@@ -48,6 +48,7 @@ https://commons.apache.org/proper/commons-math/javadocs/api-3.0/org/apache/commo
 
 
 import java.io.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -86,10 +87,26 @@ class Miss {
 
     public static void calcMissing(List<String> readings) {
         // Write your code here
-        ListIterator listIterator = readings.listIterator();
+
+        DecimalFormat df3 = new DecimalFormat("#.###");
+
+        ArrayList<Integer> miss = null;
+        ArrayList<Double> y = null;
+        double count = 0.000;
+        int i = 0;
+
+        ListIterator<String> listIterator = readings.listIterator();
         while (listIterator.hasNext()){
-            System.out.println(listIterator.next());
+
+            String s = listIterator.next();
+            String sub = s.substring(s.indexOf(":") + 7);
+            //System.out.println();
+            if(sub.contains("M")){
+                miss.add(i);
+            }
+            System.out.println(df3.format(Double.valueOf(s.substring(s.indexOf(":") + 7))));
         }
+
 
 
     }
