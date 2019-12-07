@@ -52,17 +52,18 @@ import org.apache.commons.math3.analysis.polynomials.PolynomialSplineFunction;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 
 import java.io.*;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ListIterator;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class FillinData {
 
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         InputStream stream = new FileInputStream("data/fillin.txt");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(stream));
 
@@ -90,9 +91,10 @@ class Miss {
      * The function accepts STRING_ARRAY readings as parameter.
      */
 
-    public static void calcMissing(List<String> readings) {
+    public static void calcMissing(List<String> readings) throws ParseException {
         // Write your code here
 
+        DecimalFormat df = new DecimalFormat("#.###");
 
         ArrayList<Double> xmiss = new ArrayList<>();
 
@@ -100,15 +102,22 @@ class Miss {
         ArrayList<Double> y = new ArrayList<>();
         double i = 0;
 
+        Date old_date = new SimpleDateFormat("MM/dd/yyyy").parse("00/00/0000");
+
         ListIterator<String> listIterator = readings.listIterator();
         while (listIterator.hasNext()){
 
             String s = listIterator.next();
             String sub = s.substring(s.indexOf(":") + 7);
 
-            String day = s.substring(s.indexOf(" "));
+            String day = s.substring(0,s.indexOf(" "));
+            Date date = new SimpleDateFormat("MM/dd/yyyy").parse(day);
 
-            System.out.println(day);
+            long diff = Math.abs(date.getTime()-old_date.getTime());
+
+            long days = TimeUnit.DAYS.convert(diff,TimeUnit.MILLISECONDS);
+
+            System.out.println(days);
             if(sub.contains("M")){
                 xmiss.add(i);
             }else {
@@ -118,13 +127,16 @@ class Miss {
                 //System.out.println(res);
                 //System.out.println("x:"+ i + " y:" + res);
             }
-            i++;
+            old_date = date;
+            if(listIterator.previousIndex()>=1) {
+                i += days;
+                System.out.println("Day: " + i);
+            }
         }
 
         //System.out.println(Arrays.toString(xmiss.toArray()));
 
-        double[] xd = new double[x.size()];
-        double[] yd = new double[x.size()];
+
 
         SimpleRegression sr = new SimpleRegression();
 
@@ -137,10 +149,10 @@ class Miss {
 
         //List<Double> list = new ArrayList<>();
 
-        DecimalFormat df = new DecimalFormat("#.###");
+
 
         for(Double dd: xmiss){
-            //System.out.println(df.format(sr.predict(dd)));
+            System.out.println(df.format(sr.predict(dd)));
         }
 
 
