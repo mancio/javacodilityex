@@ -3,12 +3,14 @@
 public class RepeatedString {
     public static void main(String[] args) {
 
-        String s = "aba";
-        long n = 10;
-
+        String s = "kmretasscityylpdhuwjirnqimlkcgxubxmsxpypgzxtenweirknjtasxtvxemtwxuarabssvqdnktqadhyktagjxoanknhgilnm";
+        long n = 736778906400L;
+        System.out.println(n);
         // aba aba aba a
 
         // abaa abaa ab
+
+        // a a a a a a a a a a
 
         System.out.println(repeatedString(s,n));
 
@@ -17,25 +19,38 @@ public class RepeatedString {
     // Complete the repeatedString function below.
     static long repeatedString(String s, long n) {
 
-        long count = 0;
+        long count = 0L;
         long plus = 0;
 
-        long res = n%s.length();
+        long[] a = new long[s.length()];
+
+        int res = (int) Math.abs(n % s.length());
 
 
         for(int i = 0; i<s.length(); i++){
-            if(s.charAt(i)=='a'){
+            if(s.charAt(i)=='a') {
                 count++;
             }
+            a[i] = count;
         }
 
-        for (int j = 0; j<res; j++){
-            if(s.charAt(j)=='a'){
-                plus++;
-            }
+        long fp = count*(Math.abs(n/s.length()));
+        long sd = 0;
+
+        if(res == 0L){
+            return fp;
+        }else {
+            return fp + a[res-1];
         }
 
-        return count*(Math.abs(n/s.length()))+plus;
+
 
     }
 }
+
+/*
+    ALL TEST PASSED! note that Math.toIntExact() is been
+    introduced with java 8. So you can use
+    int res = (int) Math.abs(n % s.length());
+    uncontrolled casting is unsafe.
+ */
