@@ -56,6 +56,7 @@ Reassemble the sequence of words so that the first letter is uppercase, the inte
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class SentenceOrd {
@@ -70,24 +71,25 @@ public class SentenceOrd {
 
         String[] str = sentence.split(" ");
 
-        ArrayList<String> ar = new ArrayList<>();
-
-        for(String s: str){
-            ar.add(s);
-        }
+        ArrayList<String> ar = new ArrayList<>(Arrays.asList(str));
 
         ar.sort(Comparator.comparingInt(String::length));
 
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
-        for (String s : ar) {
-            sb.append(s);
+        for (int i = 0; i<ar.size();i++) {
+            String actstr = ar.get(i);
+            if(i == 0){
+                String frUP = actstr.substring(0,1).toUpperCase()
+                        + actstr.substring(1);
+                sb.append(frUP);
+            }else {
+                sb.append(actstr.toLowerCase());
+            }
             sb.append(" ");
         }
-        String stord = sb.toString();
 
 
-
-        return stord;
+        return sb.toString();
     }
 }

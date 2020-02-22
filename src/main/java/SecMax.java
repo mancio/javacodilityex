@@ -10,7 +10,7 @@ public class SecMax {
 
     public static void main(String[] args) {
 
-        int a[] = {4,5,2,8,2,1,1,74,74};
+        int [] a = {4,5,2,8,2,1,1,73,74,73,1};
 
         System.out.println(secMax(a));
 
@@ -22,13 +22,13 @@ public class SecMax {
         fr = sec = Integer.MIN_VALUE;
 
 
-        for (int i = 0; i<a.length; i++){
-            if(a[i]>fr){
+        for (int value : a) {
+            if (value > fr) {
                 sec = fr;
-                fr = a[i];
-            }else if(a[i]>sec && a[i]!= fr){
+                fr = value;
+            }/*else if(a[i]>sec && a[i]!= fr){
                 sec = a[i];
-            }
+            }*/
 
 
         }

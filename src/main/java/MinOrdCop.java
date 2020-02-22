@@ -29,9 +29,32 @@ Explanation 1 The minimal absolute difference between any two elements in the ar
 
  */
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class MinOrdCop {
 
     public static void main(String[] args) {
 
+        int[] ar = {-4,5,-1,7};
+
+        ordy(ar);
+
+    }
+
+    static void ordy(int[] ar){
+        List<Integer> arl = new ArrayList<>();
+        for(int el: ar){
+            arl.add(el);
+        }
+        arl.sort(Comparator.naturalOrder());
+        for(int i = 0; i<arl.size(); i++){
+            if(i%2==0 && i!=0){
+                System.out.println();
+            }
+            System.out.print(arl.get(i) + " ");
+        }
     }
 }
