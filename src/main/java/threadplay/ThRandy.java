@@ -1,8 +1,6 @@
-/*
+package threadplay;/*
     Simple program to study concurrency
  */
-
-import java.util.Random;
 
 public class ThRandy {
 
@@ -10,7 +8,7 @@ public class ThRandy {
 
 
 
-        Random r = new Random();
+        //Random r = new Random();
 
         ThNew th1 = new ThNew("Mario1");
         ThNew th2 = new ThNew("Giorgio2");

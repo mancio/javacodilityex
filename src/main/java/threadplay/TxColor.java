@@ -1,4 +1,4 @@
-/*
+package threadplay;/*
     to color the output text
  */
 

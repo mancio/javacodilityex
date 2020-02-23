@@ -1,4 +1,4 @@
-/*
+package threadplay;/*
    Just a colorful thread :)
    ColPick take
  */
