@@ -1,3 +1,5 @@
+package lambdaex;
+
 public class LambClass {
 
     public static void main(String[] args) {
