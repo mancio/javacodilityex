@@ -10,10 +10,17 @@ public class NewYearChaos {
         System.out.println(chaos(q));
     }
 
-    static List chaos(int[] ar){
+    static String chaos(int[] ar){
         int ds = 0;
         for(int i=ar.length-1;i>=0;i--){
-            
+            int sum = Math.abs(ar[i]-(i+1));
+            if(sum>2){
+                return "Too chaotic";
+            }
+            ds = (ds>=sum) ? ds : sum;
         }
+        return Integer.toString(ds+1);
     }
 }
+
+// TO FINISH CALCULATE THE NUMBER OF SWAP
