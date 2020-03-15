@@ -17,7 +17,7 @@ public class NewYearChaos {
             if(sum>2){
                 return "Too chaotic";
             }
-            ds = (ds>=sum) ? ds : sum;
+            ds = Math.max(ds, sum);
         }
         return Integer.toString(ds+1);
     }
