@@ -13,14 +13,20 @@ public class NewYearChaos {
     static String chaos(int[] ar){
         int ds = 0;
         for(int i=ar.length-1;i>=0;i--){
-            int sum = Math.abs(ar[i]-(i+1));
-            if(sum>2){
-                return "Too chaotic";
+            if(ar[i]-(i+1)>2) return "Too chaotic";
+            for(int j = Math.max(0,ar[i]-2);j<i; j++){
+                if(ar[j]>ar[i]) ds++;
             }
-            ds = Math.max(ds, sum);
         }
-        return Integer.toString(ds+1);
+        return Integer.toString(ds);
     }
 }
 
-// TO FINISH CALCULATE THE NUMBER OF SWAP
+/*
+Note:
+- ar[i]-(i+1)>2 instead to abs value because is the element more
+on the left to be checked because swap is from right to left and is normal
+that after man swap small values are on the right
+- the inner for check the number of position jumped from where the object is and where
+ should be
+ */
