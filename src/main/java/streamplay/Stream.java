@@ -16,6 +16,8 @@ public class Stream {
         System.out.println(pairs(lis));
         System.out.println("common elements");
         System.out.println(common(lis,lis2));
+        System.out.println("NOT common elements");
+        System.out.println(notCommon(lis,lis2));
     }
 
     //from int[] to arraylist
@@ -40,6 +42,11 @@ public class Stream {
     // print only numbers in common
     static List common(List<Integer> one, List<Integer> two){
         return one.stream().distinct().filter(two::contains).collect(Collectors.toList());
+    }
+
+    // print only numbers not in common
+    static List notCommon(List<Integer> one, List<Integer> two){
+        return one.stream().distinct().filter(n ->!two.contains(n)).collect(Collectors.toList());
     }
 
 
